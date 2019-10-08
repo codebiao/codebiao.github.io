@@ -6,15 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: -博客搭建 | Hexo</title>
+  <title>【 配置yilia主题】 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/tags/博客搭建/index.html">
+  <meta name="description" content="配置yilia主题。。 积累的一点  Tips">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【 配置yilia主题】">
+<meta property="og:url" content="http://yoursite.com/2019/09/08/配置yilia主题/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="配置yilia主题。。 积累的一点  Tips">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-08T14:04:22.563Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="【 配置yilia主题】">
+<meta name="twitter:description" content="配置yilia主题。。 积累的一点  Tips">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -155,60 +159,223 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-配置yilia主题" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/08/使用hexo搭建个人博客！/" class="archive-article-date">
-  	<time datetime="2019-10-08T06:22:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/08/使用hexo搭建个人博客！/">使用hexo搭建个人博客！</a>
+    <h1 class="article-title" itemprop="name">
+      【 配置yilia主题】
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">-博客搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/2019/09/08/配置yilia主题/" class="archive-article-date">
+  	<time datetime="2019-09-08T03:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>配置yilia主题。。<br> 积累的一点  Tips </p>
+<a id="more"></a>
 
-          
+<h3 id="1、左侧显示总文章数"><a href="#1、左侧显示总文章数" class="headerlink" title="1、左侧显示总文章数"></a>1、左侧显示总文章数</h3><p>打开 <code>themes\yilia\layout_partial\left-col.ejs</code> 文件</p>
+<p>在：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav <span class="class"><span class="keyword">class</span>="<span class="title">header</span>-<span class="title">menu</span>"&gt;</span></span><br><span class="line"><span class="class">&lt;ul&gt;</span></span><br><span class="line"><span class="class">&lt;% for (var i in theme.menu)&#123; %&gt;</span></span><br><span class="line"><span class="class">&lt;li&gt;&lt;a href="&lt;%- url_for(theme.menu[i]) %&gt;"&gt;&lt;%= i %&gt;&lt;/a&gt;&lt;/li&gt;</span></span><br><span class="line"><span class="class">&lt;%&#125;%&gt;</span></span><br><span class="line"><span class="class">&lt;/ul&gt;</span></span><br><span class="line"><span class="class">&lt;/nav&gt;</span></span><br></pre></td></tr></table></figure>
 
+<p>后面添加：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;nav&gt;</span><br><span class="line">总文章数 &lt;%=site.posts.length%&gt;</span><br><span class="line">&lt;/nav&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、添加字数统计"><a href="#2、添加字数统计" class="headerlink" title="2、添加字数统计"></a>2、添加字数统计</h3><p>首先安装  hexo-wordcount </p>
+<p>使用命令安装： <code>npm i --save hexo-wordcount</code></p>
+<p>Node 版本 7.6.0 之前,请安装 2.x 版本 (Node.js v7.6.0 and previous)</p>
+<p><code>npm install hexo-wordcount@2 --save</code></p>
+<p>然后在 <code>themes\yilia\layout\_partial\left-col.ejs</code> 中添加：</p>
+<p><code>总字数 &lt;span class=&quot;post-count&quot;&gt;&lt;%= totalcount(site, &#39;0,0.0a&#39;) %&gt;&lt;/span&gt;</code></p>
+<p>编辑 <code>themes\yilia\layout_partial\article.ejs</code></p>
+<p>在 header 下面加入：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align=<span class="string">"center"</span> class=<span class="string">"post-count"</span>&gt;</span><br><span class="line">字数：&lt;%= wordcount(post.content) %&gt;字 | 预计阅读时长：&lt;%= min2read(post.content) %&gt;分钟&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>即可显示单篇字数和预计阅读时长。</p>
+
+      
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+               
+     
+
+    <div class="article-info article-info-index">
+
+
+
+   
+   <div align="center" class="post-count">
+         字数：250字 | 预计阅读时长：1分钟
+         </div>
+       
+
+
+
+
+
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/08/配置yilia主题/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/10/07/【C语言】指针 究极解密！/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          【C语言】指针 究极解密！
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2019/09/07/操作用法指南/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">【 操作小便签 】</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、左侧显示总文章数"><span class="toc-number">1.</span> <span class="toc-text">1、左侧显示总文章数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加字数统计"><span class="toc-number">2.</span> <span class="toc-text">2、添加字数统计</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -231,9 +398,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
