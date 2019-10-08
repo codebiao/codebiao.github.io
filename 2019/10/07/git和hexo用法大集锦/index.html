@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="git / hexo用法大集锦 ！">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-07T06:58:13.946Z">
+<meta property="og:updated_time" content="2019-10-08T12:50:07.045Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git &#x2F; hexo用法大集锦 ！">
 <meta name="twitter:description" content="git / hexo用法大集锦 ！">
@@ -177,35 +177,14 @@
         <p>git / hexo用法大集锦 ！</p>
 <a id="more"></a>
 
-<h1 id="git-操作用法："><a href="#git-操作用法：" class="headerlink" title="git 操作用法："></a>git 操作用法：</h1><p>1.设置账户(需要和github账户设置一致)</p>
-   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name xxx</span><br><span class="line">git config --global user.email xxx@foxmail.com</span><br></pre></td></tr></table></figure>
-
-<p>2.查看设置</p>
-   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --<span class="built_in">list</span></span><br><span class="line">user.name=xxx</span><br><span class="line">user.email=xxx@foxmail.com</span><br></pre></td></tr></table></figure>
-
-<p>3.创建git本地仓库</p>
-   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
-
-<p>4.查看git状态</p>
-   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
-
-<p>5.git提交文件</p>
-   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"add a function in test.java"</span></span><br></pre></td></tr></table></figure>
-
-<p>6.git删除文件（夹）</p>
-   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git rm test.txt          <span class="comment">//删除文件</span></span><br><span class="line">git rm -r filebook     <span class="comment">//删除文件夹</span></span><br></pre></td></tr></table></figure>
-
-<p>7.git提交文件</p>
-   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"add a function in test.java"</span></span><br></pre></td></tr></table></figure>
-
-<p>   -m表示注释，为提交时的说明，必须要有！</p>
-<p>8.克隆文件</p>
-   <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git clone url</span><br><span class="line"><span class="comment">//url为你的地址</span></span><br></pre></td></tr></table></figure>
-
-
-
-<ol start="9">
-<li></li>
+<h1 id="git-操作用法："><a href="#git-操作用法：" class="headerlink" title="git 操作用法："></a>git 操作用法：</h1><p><strong>[怎么将文件夹上传到GitHub上]</strong></p>
+<ol>
+<li>在GitHub上新建一个仓库地址： <a href="http://github.com/......git" target="_blank" rel="noopener">http://github.com/......git</a></li>
+<li>在需要上传的文件夹目录下，运行 git   init  初始化git；</li>
+<li>运行git  add 命令，将需要上传的内容放到暂存区，</li>
+<li>运行 git  commit   -m  “上传说明”  将暂存区的的内容放入到仓储里面；</li>
+<li>行 git  remote  add origin  <a href="http://github.com/......git,将仓储与GitHub仓库联系起来；" target="_blank" rel="noopener">http://github.com/......git,将仓储与GitHub仓库联系起来；</a></li>
+<li>运行  git  push  origin  master  将文件提交到GitHub仓库里面，这样就完成了文件夹的提交。</li>
 </ol>
 <h1 id="hexo操作用法："><a href="#hexo操作用法：" class="headerlink" title="hexo操作用法："></a>hexo操作用法：</h1><ol>
 <li><p>创建一个新页面：</p>
@@ -311,6 +290,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2019/10/08/使用hexo搭建个人博客！/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          使用hexo搭建个人博客！
+        
+      </div>
+    </a>
   
   
     <a href="/2019/10/07/【C语言】指针 究极解密！/" id="article-nav-older" class="article-nav-link-wrap">
@@ -438,6 +426,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">-博客搭建</a>
+              </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">便签</a>

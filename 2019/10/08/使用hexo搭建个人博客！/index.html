@@ -6,15 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Hexo</title>
+  <title>使用hexo搭建个人博客！ | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="跟我一起搭建属于你自己的博客平台！">
+<meta name="keywords" content="-博客搭建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用hexo搭建个人博客！">
+<meta property="og:url" content="http://yoursite.com/2019/10/08/使用hexo搭建个人博客！/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="跟我一起搭建属于你自己的博客平台！">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B4.png">
+<meta property="og:updated_time" content="2019-10-08T12:57:25.206Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="使用hexo搭建个人博客！">
+<meta name="twitter:description" content="跟我一起搭建属于你自己的博客平台！">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B1.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -150,16 +160,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-使用hexo搭建个人博客！" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-使用hexo搭建个人博客！" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/08/使用hexo搭建个人博客！/">使用hexo搭建个人博客！</a>
+    <h1 class="article-title" itemprop="name">
+      使用hexo搭建个人博客！
     </h1>
   
 
@@ -173,11 +181,94 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>  跟我一起搭建属于你自己的博客平台！</p>
-        
-          <a class="article-more-a" href="/2019/10/08/使用hexo搭建个人博客！/#more">more >></a>
-        
+<a id="more"></a>
+
+<h2 id="1、安装nodejs"><a href="#1、安装nodejs" class="headerlink" title="1、安装nodejs"></a>1、安装nodejs</h2><p> 浏览器输入下载地址 ： nodejs.org  下载Download for W indows (x64)（根据自己情况下载）</p>
+<p>安装和简单 一直下一步就行了。</p>
+<p>检查： 以管理员身份运行cmd ，输入 <code>node -v</code> 查看node版本 如果正常显示说明安装成功。</p>
+<h2 id="2、安装npm"><a href="#2、安装npm" class="headerlink" title="2、安装npm"></a>2、安装npm</h2><p>以管理员身份运行cmd ，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry-https://registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+
+<p>以上安装的是cnpm，下载速度更快。 输入 <code>cnpm -v</code>查看版本，如果正常显示说明安装成功。</p>
+<h2 id="3、利用cnpm全局安装hexo"><a href="#3、利用cnpm全局安装hexo" class="headerlink" title="3、利用cnpm全局安装hexo"></a>3、利用cnpm全局安装hexo</h2><p>以管理员身份运行cmd ，输入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+
+<p>同样：输入 <code>hexo -v</code>查看版本，如果正常显示说明安装成功。</p>
+<h2 id="4、使用hexo正式搭建博客"><a href="#4、使用hexo正式搭建博客" class="headerlink" title="4、使用hexo正式搭建博客"></a>4、使用hexo正式搭建博客</h2><h5 id="1、创建空文件夹"><a href="#1、创建空文件夹" class="headerlink" title="1、创建空文件夹"></a>1、创建空文件夹</h5><p>​    这个文件夹就是博客的本地目录，博客的所有东西都放在这个文件夹下，所以不必担心安装时错误的使用导致什么后果，如果安装失败，大可以把这个文件夹删掉，一切从头再来。一切又是新的，就跟我一样，之前搭建过程中安装一个插件导致全局崩盘，不过没关系，我们还可以重新来一遍。</p>
+<p>下面说一些windows下cmd的一些简单指令：</p>
+<ol>
+<li>创建文件夹： <code>mkdir blog</code>  其中blog时你要创建文件夹的名称</li>
+<li>进入文件: <code>cd blog</code>   <code>cd blog/source</code>  其中blog和blog/source是我要进入的文件名</li>
+<li>返回上一级目录：<code>cd ..</code>  返回上两级目录：<code>cd ../..</code> 以此类推。</li>
+<li>查看当前路径：<code>chdir</code></li>
+</ol>
+<p>好了，下面我们建立空文件夹:  </p>
+<p>我是在E盘建的，所以先输入<code>e:</code>回车进入E盘，再输入<code>mddir blog</code>建立一个空的blog文件夹。</p>
+<h5 id="2、在空文件夹下生成博客目录"><a href="#2、在空文件夹下生成博客目录" class="headerlink" title="2、在空文件夹下生成博客目录"></a>2、在空文件夹下生成博客目录</h5><ol>
+<li>cd进入博客目录</li>
+<li>在博客目录下初始化博客: <code>hexo init</code> （这个过程可能需要等待一段时间）</li>
+<li>启动博客：<code>hexo s</code> 启动成功会返回一个本地地址：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 在浏览器中打开之后可以看到下面这个页面：<img src="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B1.png" alt="示例1"></li>
+</ol>
+<p>这说明博客搭建基本完成了！</p>
+<h5 id="2、新建博客"><a href="#2、新建博客" class="headerlink" title="2、新建博客"></a>2、新建博客</h5><p>在blog目录下输入：<code>hexo n &quot;我的第一篇博客&quot;</code>    引号内是你要创建博客的名称</p>
+<p>检查： c<strong>d到blog/source/_posts/</strong>目录下 ，输入 <strong>dir</strong>  查看所有文件，会发现有一个系统自动生成的<strong>hello-world.md</strong>文件 还有一个刚才创建的 <strong>我的第一篇博客.md</strong> 文件</p>
+<p>Windows也可以打开blog文件夹进入blog/source/_posts文件夹直接查看并修改。博客文章就写在md文件里。</p>
+<p>退出到blog目录下,输入 <code>hexo clean</code>清理一下，<code>hexo g</code>生成一下，然后<code>hexo s</code>启动博客。这个时候再进入<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a> 就可以发现刚在创建的新博客了。</p>
+<h2 id="5、把本地博客部署到远端-基于github"><a href="#5、把本地博客部署到远端-基于github" class="headerlink" title="5、把本地博客部署到远端(基于github)"></a>5、把本地博客部署到远端(基于github)</h2><ol>
+<li><p>注册并登陆github ，点击右上角头像—<strong>You repositories</strong>,再点击 <strong>New</strong> 新建一个仓库</p>
+<p><img src="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B2.png" alt="示例二"></p>
+</li>
+<li><p>注意： 仓库的命名一定要是 <strong>你的昵称 +g ithub.io</strong>   (例如我的昵称是codebiao  那么地址就输入 codebiao.github.io)  ，必须符合特定要求才行。</p>
+<p>下面的 Description 随便写    下面选择Public </p>
+<p><strong>新建完成后会生成仓库的地址（这个很重要，后面会用到）：</strong></p>
+<p><img src="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B3.png" alt="示例3"></p>
+</li>
+<li><p>安装插件：在blog目录下输入：<code>cnpm install --save hexo-deployer-git</code></p>
+</li>
+<li><p>这是 <strong>_config.yml</strong> 文件：在blog目录下打开<strong>_config.yml</strong> 文件，到文件的最底下，找到deployment 配置。type设为git ，自己加上repo属性并设置为仓库的地址,branch设置为master </p>
+<p><strong>注意：冒号和后面之间一定要有空格！！</strong></p>
+<p><img src="https://raw.githubusercontent.com/codebiao/blog_picture/master/%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%81/%E7%A4%BA%E4%BE%8B4.png" alt="示例4"></p>
+</li>
+<li><p>部署到远端： 在blog目录下输入 <code>hexo d</code>  ，之后会提示你输入账号密码，成功后就可以在浏览器里访问啦！ 地址是 <strong>你的昵称+github.io</strong>(例如我的是 codebiao.github.io)</p>
+</li>
+</ol>
+<p>​     <strong>到此创建和部署博客的任务就彻底完成啦！</strong></p>
+<h2 id="6、美观博客主页，设置主题"><a href="#6、美观博客主页，设置主题" class="headerlink" title="6、美观博客主页，设置主题"></a>6、美观博客主页，设置主题</h2><p>推荐litten编写的 yilia 主题，一个优雅简洁的hexo主题。github.com/litten/hexo-theme-yilia</p>
+<ol>
+<li><p>下载主题： 在blog目录下输入：</p>
+<p>   <code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code></p>
+<p>​    这个下载过程会非常非常慢，请耐心等待！</p>
+</li>
+<li><p>修改 <strong>_config.yml</strong> 配置文件：</p>
+<p>找到 theme，将 landscape 修改为 yilia</p>
+</li>
+<li><p>进入blog目录依次输入：<code>hexo clean</code>   <code>hexo g</code>   <code>hexo s</code> 进入<a href="http://localhost:4000就会发现主题改变了。" target="_blank" rel="noopener">http://localhost:4000就会发现主题改变了。</a></p>
+</li>
+</ol>
+<h4 id="至此搭建博客和部署到远端就基本完成了，在yilia主题下的配置设置和安装各种插件我们在下次博客中进行综述！"><a href="#至此搭建博客和部署到远端就基本完成了，在yilia主题下的配置设置和安装各种插件我们在下次博客中进行综述！" class="headerlink" title="至此搭建博客和部署到远端就基本完成了，在yilia主题下的配置设置和安装各种插件我们在下次博客中进行综述！"></a>至此搭建博客和部署到远端就基本完成了，在yilia主题下的配置设置和安装各种插件我们在下次博客中进行综述！</h4>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -197,16 +288,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/08/使用hexo搭建个人博客！/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/10/08/使用hexo搭建个人博客！/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2019/10/07/git和hexo用法大集锦/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">git / hexo用法大集锦 ！</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -226,234 +376,14 @@
 
 
 
-
   
-    <article id="post-git和hexo用法大集锦" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/07/git和hexo用法大集锦/">git / hexo用法大集锦 ！</a>
-    </h1>
   
 
-        
-        <a href="/2019/10/07/git和hexo用法大集锦/" class="archive-article-date">
-  	<time datetime="2019-10-07T06:22:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>git / hexo用法大集锦 ！</p>
-        
-          <a class="article-more-a" href="/2019/10/07/git和hexo用法大集锦/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/07/git和hexo用法大集锦/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-【C语言】指针 究极解密！" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/07/【C语言】指针 究极解密！/">【C语言】指针 究极解密！</a>
-    </h1>
   
 
-        
-        <a href="/2019/10/07/【C语言】指针 究极解密！/" class="archive-article-date">
-  	<time datetime="2019-10-07T03:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>还在为C语言指针的繁琐而头疼吗？跟着我一起解密C语言，由浅入深彻底理解C语言指针的概念和用法。</p>
-        
-          <a class="article-more-a" href="/2019/10/07/【C语言】指针 究极解密！/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-        <div class="article-pop-out tagcloud">
-          <i class="icon-tuding"></i>
-          <a class="article-tag-list-link color3">置顶</a>
-        </div>
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/07/【C语言】指针 究极解密！/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-操作用法指南" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/07/操作用法指南/">【 操作小便签 】</a>
-    </h1>
   
 
-        
-        <a href="/2019/09/07/操作用法指南/" class="archive-article-date">
-  	<time datetime="2019-09-07T03:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p> 积累的一点  Tips </p>
-        
-          <a class="article-more-a" href="/2019/09/07/操作用法指南/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">便签</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/07/操作用法指南/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -476,8 +406,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
