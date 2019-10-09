@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>【 配置yilia主题】 | codebiao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="配置yilia主题。。">
+  <meta name="description" content="配置yilia主题">
 <meta name="keywords" content="博客搭建">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【 配置yilia主题】">
 <meta property="og:url" content="http://yoursite.com/2019/09/08/配置yilia主题/index.html">
 <meta property="og:site_name" content="codebiao">
-<meta property="og:description" content="配置yilia主题。。">
+<meta property="og:description" content="配置yilia主题">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-09T09:36:44.825Z">
+<meta property="og:updated_time" content="2019-10-09T10:06:36.431Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【 配置yilia主题】">
-<meta name="twitter:description" content="配置yilia主题。。">
+<meta name="twitter:description" content="配置yilia主题">
   
     <link rel="alternative" href="/atom.xml" title="codebiao" type="application/atom+xml">
   
@@ -185,7 +185,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>配置yilia主题。。</p>
+        <p>配置yilia主题</p>
 <a id="more"></a>
 
 <h3 id="1、左侧显示总文章数"><a href="#1、左侧显示总文章数" class="headerlink" title="1、左侧显示总文章数"></a>1、左侧显示总文章数</h3><p>打开 <code>themes/yilia/layout_partial/left-col.ejs</code> 文件</p>
@@ -210,6 +210,10 @@
 <p>在 <code>themes/yilia/layout/_partial/footer.ejs</code>中加入以下代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 根据个人喜好在相应位置添加以下代码 --&gt;</span><br><span class="line">&lt;div calss=<span class="string">"count-span"</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span><br><span class="line">    总访问量: &lt;span id=<span class="string">"busuanzi_value_site_pv"</span>&gt;&lt;/span&gt;|</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;span id=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span><br><span class="line">    总访客: &lt;span id=<span class="string">"busuanzi_value_site_uv"</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- 根据个人喜好在相应位置添加以上代码 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;script async src=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
 
+<p><strong>文章访问量统计：</strong></p>
+<p>在  <code>/themes/yilia/layout/_partial/article.ejs</code>中，在header后面加上：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 文章访问量 --&gt;</span><br><span class="line">&lt;% <span class="keyword">if</span> ( !index )&#123; %&gt;</span><br><span class="line">  &lt;span <span class="class"><span class="keyword">class</span>="<span class="title">archive</span>-<span class="title">article</span>-<span class="title">date</span>"&gt;</span></span><br><span class="line"><span class="class">   阅读量:</span>		&lt;span id=<span class="string">"busuanzi_value_page_pv"</span>&gt;&lt;/span&gt;</span><br><span class="line">  &lt;/span&gt;</span><br><span class="line"> &lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+
 <p>然后重新部署发布博客即可。</p>
 <h3 id="4、修改页面右下角的-Hexo-Theme-Yilia-by-Litten"><a href="#4、修改页面右下角的-Hexo-Theme-Yilia-by-Litten" class="headerlink" title="4、修改页面右下角的 Hexo Theme Yilia by Litten"></a>4、修改页面右下角的 <code>Hexo Theme Yilia by Litten</code></h3><p>在 <strong>`</strong>blog/themes/yilia/layout/_partial<code>目录下找到</code>footer.ejs`文件 修改里面的：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="class"><span class="keyword">class</span>="<span class="title">footer</span>-<span class="title">right</span>"&gt;</span></span><br><span class="line"><span class="class"> &lt;a href="http://hexo.io/" target="_blank"&gt;<span class="title">Hexo</span>&lt;/a&gt;  <span class="title">Theme</span> &lt;a   href="https://github.com/litten/hexo-theme-yilia" target="_blank"&gt;<span class="title">Yilia</span>&lt;/a&gt; <span class="title">by</span> <span class="title">Litten</span></span></span><br><span class="line"><span class="class">&lt;/div&gt;</span></span><br></pre></td></tr></table></figure>
@@ -218,6 +222,9 @@
 <p>（在 var定义的值之后） 需要添加的代码：</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">posts.data = posts.data.sort(function(a, b) &#123;</span><br><span class="line">    <span class="keyword">if</span>(a.top &amp;&amp; b.top) &#123; <span class="comment">// 两篇文章top都有定义</span></span><br><span class="line">        <span class="keyword">if</span>(a.top == b.top) <span class="keyword">return</span> b.date - a.date; <span class="comment">// 若top值一样则按照文章日期降序排</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> b.top - a.top; <span class="comment">// 否则按照top值降序排</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(a.top &amp;&amp; !b.top) &#123; <span class="comment">// 以下是只有一篇文章top有定义，那么将有top的排在前面（这里用异或操作居然不行233）</span></span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span>(!a.top &amp;&amp; b.top) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">return</span> b.date - a.date; <span class="comment">// 都没定义按照文章日期降序排</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 
+<h3 id="6、截断文章"><a href="#6、截断文章" class="headerlink" title="6、截断文章"></a>6、截断文章</h3><p>在文章需要截断的地方添加  <code>&lt;!-- more --&gt;</code>即可将文章截成两段，前面的在标签内显示，后面的只有点开全文的时候才能显示。</p>
+<p>去掉 标签界面中 <strong>more</strong> 按钮：进入theme目录，打开yilia目录下的 <strong>_config.yml</strong> 文件</p>
+<p>修改 excerpt_link： 修改之后的<strong>more</strong>单词换成<strong>空格</strong> </p>
 
       
       
@@ -262,7 +269,7 @@
 
    
    <div align="center" class="post-count">
-         字数：668字 | 预计阅读时长：3分钟
+         字数：821字 | 预计阅读时长：3分钟
          </div>
      
 
@@ -383,7 +390,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、左侧显示总文章数"><span class="toc-number">1.</span> <span class="toc-text">1、左侧显示总文章数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加字数统计"><span class="toc-number">2.</span> <span class="toc-text">2、添加字数统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、增加流量统计"><span class="toc-number">3.</span> <span class="toc-text">3、增加流量统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、修改页面右下角的-Hexo-Theme-Yilia-by-Litten"><span class="toc-number">4.</span> <span class="toc-text">4、修改页面右下角的 Hexo Theme Yilia by Litten</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、增加文章置顶功能"><span class="toc-number">5.</span> <span class="toc-text">5、增加文章置顶功能</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、左侧显示总文章数"><span class="toc-number">1.</span> <span class="toc-text">1、左侧显示总文章数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加字数统计"><span class="toc-number">2.</span> <span class="toc-text">2、添加字数统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、增加流量统计"><span class="toc-number">3.</span> <span class="toc-text">3、增加流量统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、修改页面右下角的-Hexo-Theme-Yilia-by-Litten"><span class="toc-number">4.</span> <span class="toc-text">4、修改页面右下角的 Hexo Theme Yilia by Litten</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、增加文章置顶功能"><span class="toc-number">5.</span> <span class="toc-text">5、增加文章置顶功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6、截断文章"><span class="toc-number">6.</span> <span class="toc-text">6、截断文章</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -503,11 +510,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">便签</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">便签</a>
+                <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
               </li>
              
               <li class="article-tag-list-item">
