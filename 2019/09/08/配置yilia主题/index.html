@@ -6,21 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>【 配置yilia主题】 | Hexo</title>
+  <title>【 配置yilia主题】 | codebiao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="配置yilia主题。。 积累的一点  Tips">
+  <meta name="description" content="配置yilia主题。。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【 配置yilia主题】">
 <meta property="og:url" content="http://yoursite.com/2019/09/08/配置yilia主题/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="配置yilia主题。。 积累的一点  Tips">
+<meta property="og:site_name" content="codebiao">
+<meta property="og:description" content="配置yilia主题。。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-10-08T14:04:22.563Z">
+<meta property="og:updated_time" content="2019-10-09T08:38:48.428Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【 配置yilia主题】">
-<meta name="twitter:description" content="配置yilia主题。。 积累的一点  Tips">
+<meta name="twitter:description" content="配置yilia主题。。">
   
-    <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="codebiao" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -179,7 +179,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>配置yilia主题。。<br> 积累的一点  Tips </p>
+        <p>配置yilia主题。。</p>
 <a id="more"></a>
 
 <h3 id="1、左侧显示总文章数"><a href="#1、左侧显示总文章数" class="headerlink" title="1、左侧显示总文章数"></a>1、左侧显示总文章数</h3><p>打开 <code>themes\yilia\layout_partial\left-col.ejs</code> 文件</p>
@@ -200,6 +200,11 @@
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;div align=<span class="string">"center"</span> class=<span class="string">"post-count"</span>&gt;</span><br><span class="line">字数：&lt;%= wordcount(post.content) %&gt;字 | 预计阅读时长：&lt;%= min2read(post.content) %&gt;分钟&lt;/div&gt;</span><br></pre></td></tr></table></figure>
 
 <p>即可显示单篇字数和预计阅读时长。</p>
+<h3 id="3、增加流量统计"><a href="#3、增加流量统计" class="headerlink" title="3、增加流量统计"></a>3、增加流量统计</h3><p>使用<strong>不蒜子</strong> 进行流量统计：</p>
+<p>在 <code>themes/yilia/layout/_partial/footer.ejs</code>中加入以下代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 根据个人喜好在相应位置添加以下代码 --&gt;</span><br><span class="line">&lt;div calss=<span class="string">"count-span"</span>&gt;</span><br><span class="line">    &lt;span id=<span class="string">"busuanzi_container_site_pv"</span>&gt;</span><br><span class="line">    总访问量: &lt;span id=<span class="string">"busuanzi_value_site_pv"</span>&gt;&lt;/span&gt;|</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">    &lt;span id=<span class="string">"busuanzi_container_site_uv"</span>&gt;</span><br><span class="line">    总访客: &lt;span id=<span class="string">"busuanzi_value_site_uv"</span>&gt;&lt;/span&gt;</span><br><span class="line">    &lt;/span&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!-- 根据个人喜好在相应位置添加以上代码 --&gt;</span><br><span class="line"></span><br><span class="line">&lt;script async src=<span class="string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span>&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后重新部署发布博客即可。</p>
 
       
       
@@ -244,7 +249,7 @@
 
    
    <div align="center" class="post-count">
-         字数：250字 | 预计阅读时长：1分钟
+         字数：393字 | 预计阅读时长：1分钟
          </div>
        
 
@@ -356,7 +361,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、左侧显示总文章数"><span class="toc-number">1.</span> <span class="toc-text">1、左侧显示总文章数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加字数统计"><span class="toc-number">2.</span> <span class="toc-text">2、添加字数统计</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、左侧显示总文章数"><span class="toc-number">1.</span> <span class="toc-text">1、左侧显示总文章数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、添加字数统计"><span class="toc-number">2.</span> <span class="toc-text">2、添加字数统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、增加流量统计"><span class="toc-number">3.</span> <span class="toc-text">3、增加流量统计</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -392,6 +397,20 @@
       	</div>
     </div>
   </div>
+
+  <!-- 根据个人喜好在相应位置添加以下代码 -->
+<div calss="count-span">
+    <span id="busuanzi_container_site_pv">
+    总访问量: <span id="busuanzi_value_site_pv"></span>|
+    </span>
+    <span id="busuanzi_container_site_uv">
+    总访客: <span id="busuanzi_value_site_uv"></span>
+    </span>
+</div>
+<!-- 根据个人喜好在相应位置添加以上代码 -->
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
 </footer>
     </div>
     <script>
@@ -461,11 +480,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">-博客搭建</a>
+                <a href="javascript:void(0)" class="js-tag color3">便签</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">便签</a>
+                <a href="javascript:void(0)" class="js-tag color1">-博客搭建</a>
               </li>
              
               <li class="article-tag-list-item">
