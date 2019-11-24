@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: 便签 | codebiao</title>
+  <title>jsp使用SmartUpload进行文件上传 | codebiao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="codebiao">
-<meta property="og:url" content="http://yoursite.com/tags/便签/index.html">
+  <meta name="description" content="jsp使用SmartUpload进行文件上传">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jsp使用SmartUpload进行文件上传">
+<meta property="og:url" content="http://yoursite.com/2019/11/24/jsp使用SmartUpload进行文件上传/index.html">
 <meta property="og:site_name" content="codebiao">
+<meta property="og:description" content="jsp使用SmartUpload进行文件上传">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-24T11:14:45.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codebiao">
+<meta name="twitter:title" content="jsp使用SmartUpload进行文件上传">
+<meta name="twitter:description" content="jsp使用SmartUpload进行文件上传">
   
     <link rel="alternative" href="/atom.xml" title="codebiao" type="application/atom+xml">
   
@@ -152,60 +157,229 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-jsp使用SmartUpload进行文件上传" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/07/操作用法指南/" class="archive-article-date">
-  	<time datetime="2019-09-07T03:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-07</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/07/操作用法指南/">【 操作小便签 】</a>
+    <h1 class="article-title" itemprop="name">
+      jsp使用SmartUpload进行文件上传
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/11/24/jsp使用SmartUpload进行文件上传/" class="archive-article-date">
+  	<time datetime="2019-11-24T08:34:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-24</time>
+</a>
+        
+
+	  <!-- 文章访问量 -->
+            
+              <span class="archive-article-date">
+               阅读量:		<span id="busuanzi_value_page_pv"></span>
+              </span>
+             
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>jsp使用SmartUpload进行文件上传</p>
+<a id="more"></a>
+
+<p>思路：jsp前端用于接收照片，传给servlet进行处理并且跳转页面</p>
+<p>注意: 导入jar包 : <a href="https://pan.baidu.com/s/1Smqkrioqrmx_QnA6AMp0lA" target="_blank" rel="noopener">jspSmartUpload.jar</a>     提取码 8hhh</p>
+<h3 id="SmartUpload工具上传文件步骤"><a href="#SmartUpload工具上传文件步骤" class="headerlink" title="SmartUpload工具上传文件步骤"></a><strong>SmartUpload工具上传文件步骤</strong></h3><p>上传文件的步骤：</p>
+<p>1、实例化SmartUpLoad实例<br>    SmartUpload smart = new SmartUpload();</p>
+<p>2、初始化上传操作<br>    ServletConfig config = this.getServletConfig();    取得config内置对象<br>    smart.initialize(config,req,resp)        初始化，第一步执行initialize方法</p>
+<p>3、设置被允许上传的文件格式、文件最大值、所有文件最大值，准备上传</p>
+<p>4、开始上传文件<br>    smart.upload();</p>
+<p>5、取得项目部署路径<br>    String savePath=req.getServletContext().getRealPath(“上传文件存放的路径”);<br>    File file = new File(savePath);        表示用当前路径 生成一个File实例（注意导包  java.io.File）</p>
+<p>6、判断当前路径是否有文件夹    file.exists()</p>
+<p>7、生成文件名（也可按照文件的原名称保存smart.save(savePath)）<br>    可以使用时间，IP，随机数共同产生一个字符串来作为文件名</p>
+<p>8、按照新的文件名保存文件。</p>
+<h2 id="jsp前端页面："><a href="#jsp前端页面：" class="headerlink" title="jsp前端页面："></a>jsp前端页面：</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;%@ page language=<span class="string">"java"</span> <span class="keyword">import</span>=<span class="string">"java.util.*"</span> pageEncoding=<span class="string">"gb2312"</span>%&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;form action=<span class="string">"servlet"</span> method=<span class="string">"post"</span> enctype=<span class="string">"multipart/form-data"</span> name=<span class="string">"theFile"</span>&gt;</span><br><span class="line">        &lt;input type=<span class="string">"file"</span> name=<span class="string">"file"</span> size=<span class="string">"30"</span>/&gt;&lt;br&gt;</span><br><span class="line">        &lt;input type=<span class="string">"submit"</span> value=<span class="string">"上传"</span> name=<span class="string">"btn"</span>&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：设置 enctype=”multipart/form-data”</strong> </p>
+<h2 id="servlet代码："><a href="#servlet代码：" class="headerlink" title="servlet代码："></a>servlet代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> servlet;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.RequestDispatcher;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletException;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServlet;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpSession;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.jspsmart.upload.SmartUpload;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">servlet</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">1L</span>;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doGet</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">           doPost(request, response);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></span><br><span class="line"><span class="function">			<span class="keyword">throws</span> ServletException, IOException </span>&#123;</span><br><span class="line">		request.setCharacterEncoding(<span class="string">"gb2312"</span>);</span><br><span class="line">        response.setContentType(<span class="string">"text/html;charset=gb2312"</span>);</span><br><span class="line">        HttpSession session = request.getSession(<span class="keyword">true</span>);</span><br><span class="line">        SmartUpload up=<span class="keyword">new</span> SmartUpload();</span><br><span class="line">        <span class="keyword">try</span>&#123;</span><br><span class="line">        	up.initialize(<span class="keyword">this</span>.getServletConfig(),request,response);</span><br><span class="line">            <span class="comment">//up.setAllowedFilesList("jpg,gif");//允许上传图片类型</span></span><br><span class="line">            <span class="comment">//up.setDeniedFilesList("exe");     //禁止上传类型</span></span><br><span class="line">        	<span class="comment">//up.setMaxFileSize(1024*1024);     //上传单个照片最大值</span></span><br><span class="line">            up.setTotalMaxFileSize(<span class="number">5</span>*<span class="number">1024</span>*<span class="number">1024</span>); <span class="comment">//上传的最大总文件大小</span></span><br><span class="line">            </span><br><span class="line">            up.upload();<span class="comment">// 开始上传文件</span></span><br><span class="line">            </span><br><span class="line">            <span class="comment">//String fn=up.getFiles().getFile(0).getFieldName();//获取文件名</span></span><br><span class="line">            String path=<span class="string">"E:\\myfile"</span>; <span class="comment">//存放的路径</span></span><br><span class="line">      </span><br><span class="line">            File d = <span class="keyword">new</span> File(path);    </span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span>(!d.exists())&#123;  <span class="comment">//判断当前路径是否有文件夹，如果没有就创建</span></span><br><span class="line">                d.mkdirs();</span><br><span class="line">            &#125;</span><br><span class="line">            up.save(path);    <span class="comment">//将文件以原来的名字保存在path路径中</span></span><br><span class="line">            </span><br><span class="line">            </span><br><span class="line">            <span class="comment">//将文件另存 </span></span><br><span class="line">            com.jspsmart.upload.File file = up.getFiles().getFile(<span class="number">0</span>); <span class="comment">//第1个个图片，如果上传多个图片可以用循环</span></span><br><span class="line">            <span class="keyword">if</span> (!file.isMissing()) &#123; <span class="comment">//如果文件存在</span></span><br><span class="line">              file.saveAs(<span class="string">"E:\\"</span> +<span class="string">"001"</span>+<span class="string">"."</span>+file.getFileExt()); </span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">//System.out.print(fn);</span></span><br><span class="line">            <span class="comment">//System.out.print("文件上传成功啦！！！");</span></span><br><span class="line">            session.setAttribute(<span class="string">"src"</span>, <span class="string">"E:\\"</span> +<span class="string">"001"</span>+<span class="string">"."</span>+file.getFileExt());<span class="comment">//将文件路径传出</span></span><br><span class="line">            RequestDispatcher dispatcher=request.getRequestDispatcher(<span class="string">"suc.jsp"</span>);</span><br><span class="line">            dispatcher.forward(request, response);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+               
+     
+
+    <div class="article-info article-info-index">
+
+
+
+   
+   <div align="center" class="post-count">
+         字数：677字 | 预计阅读时长：3分钟
+         </div>
+     
+
+
+
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">便签</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/24/jsp使用SmartUpload进行文件上传/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/11/23/深度学习基础知识/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">深度学习基础知识</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#SmartUpload工具上传文件步骤"><span class="toc-number">1.</span> <span class="toc-text">SmartUpload工具上传文件步骤</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#jsp前端页面："><span class="toc-number"></span> <span class="toc-text">jsp前端页面：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#servlet代码："><span class="toc-number"></span> <span class="toc-text">servlet代码：</span></a>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -243,9 +417,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -310,15 +484,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">踩坑日记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">博客搭建</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">便签</a>
+                <a href="javascript:void(0)" class="js-tag color1">-深度学习</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">踩坑日记</a>
+                <a href="javascript:void(0)" class="js-tag color5">深度学习</a>
               </li>
              
               <li class="article-tag-list-item">

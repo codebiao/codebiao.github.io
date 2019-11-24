@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019/10 | codebiao</title>
+  <title>深度学习入门01 | codebiao</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="codebiao">
-<meta property="og:url" content="http://yoursite.com/archives/2019/10/index.html">
+  <meta name="description" content="梯度下降(gradient descent)">
+<meta name="keywords" content="深度学习">
+<meta property="og:type" content="article">
+<meta property="og:title" content="深度学习入门01">
+<meta property="og:url" content="http://yoursite.com/2019/11/23/gradient descent/index.html">
 <meta property="og:site_name" content="codebiao">
+<meta property="og:description" content="梯度下降(gradient descent)">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-11-23T13:35:50.058Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="codebiao">
+<meta name="twitter:title" content="深度学习入门01">
+<meta name="twitter:description" content="梯度下降(gradient descent)">
   
     <link rel="alternative" href="/atom.xml" title="codebiao" type="application/atom+xml">
   
@@ -152,171 +157,233 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
+            <article id="post-gradient descent" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      深度学习入门01
+    </h1>
+  
+
+        
+        <a href="/2019/11/23/gradient descent/" class="archive-article-date">
+  	<time datetime="2019-11-23T12:09:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-23</time>
+</a>
+        
+
+	  <!-- 文章访问量 -->
             
-  
-  
+              <span class="archive-article-date">
+               阅读量:		<span id="busuanzi_value_page_pv"></span>
+              </span>
+             
+
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>梯度下降(gradient descent)</p>
+<a id="more"></a>
+
+<h2 id="常用语："><a href="#常用语：" class="headerlink" title="常用语："></a>常用语：</h2><p>gradient descent 梯度下降</p>
+<p>Closed Form Solution 近似解</p>
+<p>Noise 噪声(误差)</p>
+<p>Linear Regression 线性回归(一般只要预测值是连续的，都叫回归问题，比如年龄预测)</p>
+<p>Logistic Regression 逻辑回归(用于预测属于某类的概率，线性回归+<a href="https://baike.baidu.com/item/激活函数/2520792?fr=aladdin" target="_blank" rel="noopener">激活函数</a>=逻辑回归)</p>
+<h2 id="示例：求解一个简单的二元一次方程-y-w-x-b"><a href="#示例：求解一个简单的二元一次方程-y-w-x-b" class="headerlink" title="示例：求解一个简单的二元一次方程 y = w * x + b"></a>示例：求解一个简单的二元一次方程 y = w * x + b</h2><p>这个问题也就是给出n个数据 (x,y) ，求出 w 和 b 的最优值 </p>
+<p>也就是求出  loss = ( WX+b - y )^2 的最小值</p>
+<p>具体代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># loss function 损失函数   y = wx + b</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_error_for_line_given_points</span><span class="params">(b, w, points)</span>:</span></span><br><span class="line">    totalError = <span class="number">0</span>                                           <span class="comment"># points 是x 、y 的组合</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(points)):</span><br><span class="line">        x = points[i, <span class="number">0</span>]                                     <span class="comment"># 取得这个点的 x 的值</span></span><br><span class="line">        y = points[i, <span class="number">1</span>]                                     <span class="comment"># 取得这个点的 y 的值</span></span><br><span class="line">        totalError += (y - (w * x + b)) ** <span class="number">2</span>                 <span class="comment"># 预测值与真实值的 平方和 累加</span></span><br><span class="line">    <span class="keyword">return</span> totalError / float(len(points))                   <span class="comment"># 求 average</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 梯度信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">step_gradient</span><span class="params">(b_current, w_current, points, learningRate)</span>:</span></span><br><span class="line">    b_gradient = <span class="number">0</span></span><br><span class="line">    w_gradient = <span class="number">0</span></span><br><span class="line">    N = float(len(points))                                                <span class="comment"># points 的总数目 N</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(points)):</span><br><span class="line">        x = points[i, <span class="number">0</span>]                                                  <span class="comment"># 取得这个点的 x 的值</span></span><br><span class="line">        y = points[i, <span class="number">1</span>]                                                  <span class="comment"># 取得这个点的 y 的值</span></span><br><span class="line">        b_gradient += -(<span class="number">2</span> / N) * (y - ((w_current * x) + b_current))      <span class="comment"># b 更新之后的梯度</span></span><br><span class="line">        w_gradient += -(<span class="number">2</span> / N) * x * (y - ((w_current * x) + b_current))  <span class="comment"># w 更新之后的梯度</span></span><br><span class="line">    new_b = b_current - (learningRate * b_gradient)                       <span class="comment"># 更新之后的值</span></span><br><span class="line">    new_w = w_current - (learningRate * w_gradient)</span><br><span class="line">    <span class="keyword">return</span> [new_b, new_w]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 循环迭代梯度信息</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gradient_descent_runner</span><span class="params">(points, current_b, current_w,             # iterations表示迭代次数</span></span></span><br><span class="line"><span class="function"><span class="params">                            learningRate, num_iterations)</span>:</span></span><br><span class="line">    b = current_b</span><br><span class="line">    w = current_w</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(num_iterations):</span><br><span class="line">        [b, w] = step_gradient(b, w, np.array(points), learningRate)   <span class="comment"># np.array(points) 表示送进来的 x 和 y 的数组</span></span><br><span class="line">    <span class="keyword">return</span> [b, w]                                                    <span class="comment"># 返回最后一组的 b 和 w 就是最后得到的结果</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    points = np.genfromtxt(<span class="string">"E:\\untitled\\project1\\data.csv"</span>, delimiter=<span class="string">","</span>)</span><br><span class="line">    learningRate = <span class="number">0.0001</span>                     <span class="comment"># 学习率</span></span><br><span class="line">    initial_b = <span class="number">0</span>                             <span class="comment"># b的初始值</span></span><br><span class="line">    initial_w = <span class="number">0</span>                             <span class="comment"># w的初始值</span></span><br><span class="line">    num_iterations = <span class="number">1000</span>                     <span class="comment"># 迭代次数</span></span><br><span class="line">    print(<span class="string">"Staring gradient descent at b = &#123;0&#125; , w = &#123;1&#125;, error = &#123;2&#125; "</span></span><br><span class="line">          .format(initial_b, initial_w,</span><br><span class="line">                  compute_error_for_line_given_points(initial_b, initial_w, points))</span><br><span class="line">          )</span><br><span class="line">    print(<span class="string">"Running....."</span>)</span><br><span class="line">    [b, w] = gradient_descent_runner(points, initial_b, initial_w, learningRate, num_iterations)</span><br><span class="line">    print(<span class="string">"After &#123;0&#125; iterations b = &#123;1&#125;, w = &#123;2&#125;, error = &#123;3&#125;"</span></span><br><span class="line">          .format(num_iterations, b, w,</span><br><span class="line">                  compute_error_for_line_given_points(b, w, points))</span><br><span class="line">          )</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:  <span class="comment"># 主函数</span></span><br><span class="line">    run()</span><br></pre></td></tr></table></figure>
+
+<h4 id="运行结果："><a href="#运行结果：" class="headerlink" title="运行结果："></a>运行结果：</h4><p>Staring gradient descent at b = 0 , w = 0, error = 2867.84536760405<br>Running…..<br>After 1000 iterations b = -0.2618055223815977, w = 1.2088373733071605, error = 36.724168328835304</p>
+
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/zhifubao.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/weixin.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/10/hexo yilia增加相册功能/" class="archive-article-date">
-  	<time datetime="2019-10-10T11:39:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-10</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/10/hexo yilia增加相册功能/">hexo yilia增加相册功能</a>
-    </h1>
-  
+      
+    </div>
+               
+     
 
-        <div class="article-info info-on-right">
-          
+    <div class="article-info article-info-index">
+
+
+
+   
+   <div align="center" class="post-count">
+         字数：546字 | 预计阅读时长：2分钟
+         </div>
+     
+
+
+
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">踩坑日记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">深度学习</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/11/23/gradient descent/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/08/使用hexo搭建个人博客！/" class="archive-article-date">
-  	<time datetime="2019-10-08T06:22:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-08</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/11/23/深度学习基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          深度学习基础知识
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/11/23/java程序调用外部python文件并取得返回结果/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java调用外部python文件并取得返回结果</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/08/使用hexo搭建个人博客！/">使用hexo搭建个人博客！</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">博客搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#常用语："><span class="toc-number">1.</span> <span class="toc-text">常用语：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#示例：求解一个简单的二元一次方程-y-w-x-b"><span class="toc-number">2.</span> <span class="toc-text">示例：求解一个简单的二元一次方程 y = w * x + b</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#运行结果："><span class="toc-number">2.0.1.</span> <span class="toc-text">运行结果：</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/git和hexo用法大集锦/" class="archive-article-date">
-  	<time datetime="2019-10-07T06:22:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/git和hexo用法大集锦/">git / hexo用法大集锦 ！</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/10/07/【C语言】指针 究极解密！/" class="archive-article-date">
-  	<time datetime="2019-10-07T03:56:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-07</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/10/07/【C语言】指针 究极解密！/">【C语言】指针 究极解密！</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">C语言</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -354,8 +421,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
